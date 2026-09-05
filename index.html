@@ -1254,7 +1254,6 @@
             </button>
             
             <div class="gallery-slider" id="gallerySlider">
-                <!-- ===== ВАННАЯ №1 (КЛАССИЧЕСКАЯ) ===== -->
                 <div class="gallery-item" data-index="0">
                     <img src="images/vannaya-1-1.jpg" alt="Ванная классический стиль" loading="lazy" />
                     <div class="info">
@@ -1263,7 +1262,6 @@
                     </div>
                 </div>
 
-                <!-- ===== ВАННАЯ №2 (СОВРЕМЕННАЯ) ===== -->
                 <div class="gallery-item" data-index="1">
                     <img src="images/vannaya-2-1.jpg" alt="Ванная современный стиль" loading="lazy" />
                     <div class="info">
@@ -1272,7 +1270,6 @@
                     </div>
                 </div>
 
-                <!-- ===== ЗАГЛУШКА №1 ===== -->
                 <div class="gallery-item" data-index="2">
                     <img src="images/gallery-3.jpg" alt="Скоро добавим" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23cfc1b4\'/%3E%3Ctext x=\'50%25\' y=\'40%25\' font-size=\'36\' font-family=\'Inter, sans-serif\' fill=\'%23e05a2a\' text-anchor=\'middle\' font-weight=\'700\'%3E🚧%3C/text%3E%3Ctext x=\'50%25\' y=\'58%25\' font-size=\'18\' font-family=\'Inter, sans-serif\' fill=\'%233d352e\' text-anchor=\'middle\'%3EСкоро добавим%3C/text%3E%3C/svg%3E'" />
                     <div class="info">
@@ -1281,7 +1278,6 @@
                     </div>
                 </div>
 
-                <!-- ===== ЗАГЛУШКА №2 ===== -->
                 <div class="gallery-item" data-index="3">
                     <img src="images/gallery-4.jpg" alt="Скоро добавим" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23dccfc4\'/%3E%3Ctext x=\'50%25\' y=\'40%25\' font-size=\'36\' font-family=\'Inter, sans-serif\' fill=\'%23e05a2a\' text-anchor=\'middle\' font-weight=\'700\'%3E🚧%3C/text%3E%3Ctext x=\'50%25\' y=\'58%25\' font-size=\'18\' font-family=\'Inter, sans-serif\' fill=\'%233d352e\' text-anchor=\'middle\'%3EСкоро добавим%3C/text%3E%3C/svg%3E'" />
                     <div class="info">
@@ -1290,7 +1286,6 @@
                     </div>
                 </div>
 
-                <!-- ===== ЗАГЛУШКА №3 ===== -->
                 <div class="gallery-item" data-index="4">
                     <img src="images/gallery-5.jpg" alt="Скоро добавим" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23d9ccc0\'/%3E%3Ctext x=\'50%25\' y=\'40%25\' font-size=\'36\' font-family=\'Inter, sans-serif\' fill=\'%23e05a2a\' text-anchor=\'middle\' font-weight=\'700\'%3E🚧%3C/text%3E%3Ctext x=\'50%25\' y=\'58%25\' font-size=\'18\' font-family=\'Inter, sans-serif\' fill=\'%233d352e\' text-anchor=\'middle\'%3EСкоро добавим%3C/text%3E%3C/svg%3E'" />
                     <div class="info">
@@ -1299,7 +1294,6 @@
                     </div>
                 </div>
 
-                <!-- ===== ЗАГЛУШКА №4 ===== -->
                 <div class="gallery-item" data-index="5">
                     <img src="images/gallery-6.jpg" alt="Скоро добавим" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23e2d5c8\'/%3E%3Ctext x=\'50%25\' y=\'40%25\' font-size=\'36\' font-family=\'Inter, sans-serif\' fill=\'%23e05a2a\' text-anchor=\'middle\' font-weight=\'700\'%3E🚧%3C/text%3E%3Ctext x=\'50%25\' y=\'58%25\' font-size=\'18\' font-family=\'Inter, sans-serif\' fill=\'%233d352e\' text-anchor=\'middle\'%3EСкоро добавим%3C/text%3E%3C/svg%3E'" />
                     <div class="info">
@@ -1493,7 +1487,7 @@
 
 <!-- ===== SCRIPT ===== -->
 <script>
-    // ===== ДАННЫЕ ДЛЯ ГАЛЕРЕИ (ПО 4 ФОТО ДЛЯ КАЖДОЙ ВАННОЙ) =====
+    // ===== ДАННЫЕ ДЛЯ ГАЛЕРЕИ =====
     const galleryData = [
         {
             id: 1,
@@ -1716,20 +1710,26 @@
         setTimeout(updateBenefitsButtons, 100);
     }
 
-    // ===== FORM SCRIPT =====
+    // ===== FORM SCRIPT (ОТПРАВКА В TELEGRAM) =====
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('contact-form');
         const statusDiv = document.getElementById('form-status');
+
+        // ⬇⬇⬇ ВСТАВЬТЕ СВОЙ ТОКЕН И CHAT ID ⬇⬇⬇
+        const BOT_TOKEN = '8807074165:AAG1X4e3wQF-oCbk_MvQ837-YX9J7mcP54o';
+        const CHAT_ID = '573904279';
+        const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (!name || !phone) {
                 statusDiv.className = 'error';
-                statusDiv.textContent = 'Пожалуйста, заполните имя и телефон.';
+                statusDiv.textContent = '❌ Пожалуйста, заполните имя и телефон.';
                 statusDiv.style.display = 'block';
                 return;
             }
@@ -1739,20 +1739,40 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
             statusDiv.style.display = 'none';
 
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('phone', phone);
-            formData.append('message', document.getElementById('message').value.trim());
+            // Формируем текст сообщения
+            const text = `🛠 НОВАЯ ЗАЯВКА С САЙТА!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📝 Сообщение: ${message || '—'}\n\n📅 ${new Date().toLocaleString('ru-RU')}`;
 
-            setTimeout(() => {
-                console.log('Данные формы:', Object.fromEntries(formData));
-                statusDiv.className = 'success';
-                statusDiv.textContent = 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
-                statusDiv.style.display = 'block';
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
-            }, 800);
+            try {
+                const response = await fetch(TELEGRAM_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.ok) {
+                    statusDiv.className = 'success';
+                    statusDiv.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                    form.reset();
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                statusDiv.className = 'error';
+                statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните по телефону.';
+            }
+
+            statusDiv.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
         });
     });
 </script>
