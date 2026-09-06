@@ -34,7 +34,6 @@
             padding: 0 24px;
         }
 
-        /* ===== АНИМАЦИИ ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -52,29 +51,6 @@
             }
             to {
                 opacity: 1;
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
             }
         }
 
@@ -100,53 +76,6 @@
             animation: fadeIn 0.6s ease forwards;
         }
 
-        /* Анимация при наведении на карточки */
-        .gallery-item,
-        .benefit-item,
-        .price-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
-        }
-
-        .benefit-item:hover {
-            border-color: #e05a2a;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(224, 90, 42, 0.08);
-        }
-
-        .price-card:hover {
-            border-color: #e05a2a;
-            transform: translateY(-4px);
-        }
-
-        .btn-primary,
-        .btn-outline,
-        .btn-submit {
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 48px rgba(224, 90, 42, 0.5);
-        }
-
-        .btn-outline:hover {
-            transform: scale(1.02);
-        }
-
-        .btn-submit:hover:not(:disabled) {
-            transform: scale(1.01);
-        }
-
-        /* Анимация для бургер-меню */
-        .mobile-menu {
-            transition: transform 0.3s ease;
-        }
-
         /* ===== HEADER ===== */
         .header {
             padding: 12px 0 8px;
@@ -155,7 +84,7 @@
             border-bottom: 1px solid rgba(224, 90, 42, 0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .header-content {
@@ -178,7 +107,7 @@
             background: #f5ede6;
             padding: 8px 12px;
             border-radius: 12px;
-            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            transition: 0.3s;
         }
 
         .logo-icon:hover {
@@ -217,7 +146,7 @@
             color: #4a3f37;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: color 0.3s ease;
+            transition: 0.3s;
             position: relative;
         }
 
@@ -229,7 +158,7 @@
             width: 0;
             height: 2px;
             background: #e05a2a;
-            transition: width 0.3s ease;
+            transition: 0.3s;
         }
 
         .nav-menu a:hover {
@@ -245,24 +174,38 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #4a3f37;
             cursor: pointer;
-            padding: 4px 8px;
-            transition: color 0.3s ease;
-            z-index: 101;
+            padding: 8px 12px;
+            transition: 0.3s;
+            z-index: 1001;
+            border-radius: 8px;
         }
 
         .burger-btn:hover {
             color: #e05a2a;
+            background: #f5ede6;
+        }
+
+        .burger-btn.active .fa-bars {
+            display: none;
+        }
+
+        .burger-btn.active .fa-times {
+            display: inline-block !important;
+        }
+
+        .burger-btn .fa-times {
+            display: none;
         }
 
         .mobile-menu-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 98;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
             backdrop-filter: blur(4px);
             animation: fadeIn 0.3s ease;
         }
@@ -272,16 +215,16 @@
         }
 
         .mobile-menu {
-            display: none;
+            display: block;
             position: fixed;
             top: 0;
             right: 0;
-            width: 280px;
+            width: 300px;
             height: 100%;
             background: #fff;
-            z-index: 99;
-            padding: 80px 30px 30px;
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 100px 30px 30px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
             transform: translateX(100%);
             transition: transform 0.3s ease;
             overflow-y: auto;
@@ -295,7 +238,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 4px;
         }
 
         .mobile-menu ul li a {
@@ -303,29 +246,28 @@
             color: #1e1e1e;
             font-weight: 600;
             font-size: 1.2rem;
-            transition: color 0.3s ease, padding-left 0.3s ease;
+            transition: 0.3s;
             display: block;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0e8e0;
+            padding: 14px 16px;
+            border-radius: 12px;
         }
 
         .mobile-menu ul li a:hover {
             color: #e05a2a;
-            padding-left: 8px;
+            background: #f5ede6;
+            padding-left: 24px;
         }
 
         .mobile-menu .mobile-phone {
             display: block;
-            margin-top: 30px;
-            padding: 14px 20px;
+            margin-top: 20px;
+            padding: 16px 20px;
             background: #e05a2a;
             color: #fff !important;
             border-radius: 60px;
             text-align: center;
             font-weight: 700;
             font-size: 1.1rem;
-            border-bottom: none !important;
-            transition: background 0.3s ease;
         }
 
         .mobile-menu .mobile-phone:hover {
@@ -350,7 +292,7 @@
             color: #1e1e1e;
             text-decoration: none;
             background: #f5ede6;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -359,7 +301,6 @@
         .header-phone i {
             color: #e05a2a;
             font-size: 1rem;
-            transition: color 0.3s ease;
         }
 
         .header-phone:hover {
@@ -463,8 +404,8 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
             box-shadow: 0 8px 32px rgba(224, 90, 42, 0.4);
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary i {
@@ -559,10 +500,10 @@
             border-radius: 20px;
             overflow: hidden;
             background: #faf8f6;
+            transition: 0.4s;
             box-shadow: 0 4px 16px rgba(0,0,0,0.02);
             cursor: pointer;
             scroll-snap-align: start;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item:hover {
@@ -575,7 +516,7 @@
             height: 280px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: 0.5s;
         }
 
         .gallery-item:hover img {
@@ -608,7 +549,7 @@
             color: #4a3f37;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -631,7 +572,7 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.92);
-            z-index: 999;
+            z-index: 9999;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -651,7 +592,6 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
-            animation: slideInRight 0.3s ease;
         }
 
         .modal-image {
@@ -675,7 +615,7 @@
             height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -700,7 +640,7 @@
             height: 56px;
             border-radius: 50%;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -750,7 +690,7 @@
             border-radius: 8px;
             cursor: pointer;
             opacity: 0.5;
-            transition: opacity 0.3s ease, border-color 0.3s ease;
+            transition: 0.3s;
             border: 2px solid transparent;
             flex-shrink: 0;
         }
@@ -764,13 +704,13 @@
             border-color: #e05a2a;
         }
 
-        /* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПОЛИТИКИ ===== */
+        /* ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ===== */
         .policy-modal {
             display: none;
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
+            z-index: 10000;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -791,7 +731,6 @@
             overflow-y: auto;
             position: relative;
             box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
-            animation: slideInRight 0.3s ease;
         }
 
         .policy-modal-content h2 {
@@ -838,7 +777,7 @@
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -899,8 +838,8 @@
             border-radius: 20px;
             background: #fff;
             border: 1px solid #ede6de;
+            transition: 0.3s;
             scroll-snap-align: start;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .benefit-item:hover {
@@ -939,7 +878,7 @@
             color: #4a3f37;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -975,7 +914,7 @@
             padding: 32px 24px 28px;
             text-align: center;
             border: 2px solid transparent;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: 0.4s;
             position: relative;
         }
 
@@ -1061,7 +1000,7 @@
             text-decoration: none;
             border: 2px solid #e05a2a;
             color: #e05a2a;
-            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            transition: 0.3s;
             background: transparent;
             font-size: 0.9rem;
             cursor: pointer;
@@ -1172,7 +1111,7 @@
             border-radius: 30px;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
-            transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            transition: 0.25s;
             background: #faf8f6;
         }
 
@@ -1214,7 +1153,6 @@
             margin-top: 2px;
             cursor: pointer;
             accent-color: #e05a2a;
-            transition: accent-color 0.3s ease;
         }
 
         .checkbox-group label {
@@ -1229,7 +1167,6 @@
             text-decoration: underline;
             font-weight: 600;
             cursor: pointer;
-            transition: color 0.3s ease;
         }
 
         .checkbox-group label a:hover {
@@ -1251,7 +1188,7 @@
             font-size: 1rem;
             width: 100%;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1323,7 +1260,7 @@
             color: #cbc1b8;
             text-decoration: none;
             font-size: 0.8rem;
-            transition: color 0.3s ease;
+            transition: 0.3s;
             cursor: pointer;
         }
 
@@ -1333,16 +1270,6 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .nav-menu {
-                gap: 20px;
-            }
-
-            .nav-menu a {
-                font-size: 1rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1546,9 +1473,10 @@
                 </ul>
             </nav>
 
-            <!-- ===== БУРГЕР-МЕНЮ (МОБИЛЬНАЯ ВЕРСИЯ) ===== -->
+            <!-- ===== БУРГЕР-КНОПКА ===== -->
             <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
                 <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
             </button>
         </div>
 
@@ -1565,10 +1493,10 @@
 
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="#works" class="mobile-link">Наши работы</a></li>
-        <li><a href="#benefits" class="mobile-link">Преимущества</a></li>
-        <li><a href="#prices" class="mobile-link">Цены</a></li>
-        <li><a href="#form" class="mobile-link">Контакты</a></li>
+        <li><a href="#works" class="mobile-link"><i class="fas fa-images" style="margin-right:12px;color:#e05a2a;"></i>Наши работы</a></li>
+        <li><a href="#benefits" class="mobile-link"><i class="fas fa-star" style="margin-right:12px;color:#e05a2a;"></i>Преимущества</a></li>
+        <li><a href="#prices" class="mobile-link"><i class="fas fa-tag" style="margin-right:12px;color:#e05a2a;"></i>Цены</a></li>
+        <li><a href="#form" class="mobile-link"><i class="fas fa-envelope" style="margin-right:12px;color:#e05a2a;"></i>Контакты</a></li>
         <li><a href="tel:+79170738790" class="mobile-phone"><i class="fas fa-phone-alt"></i> +7 (917) 073-87-90</a></li>
     </ul>
 </div>
@@ -1815,7 +1743,7 @@
                         <textarea id="message" placeholder="Тип ремонта, площадь и другие пожелания"></textarea>
                     </div>
 
-                    <!-- ===== ЧЕКБОКС СОГЛАСИЯ НА ОБРАБОТКУ ПД ===== -->
+                    <!-- ===== ЧЕКБОКС СОГЛАСИЯ ===== -->
                     <div class="checkbox-group">
                         <input type="checkbox" id="agree" required />
                         <label for="agree">
@@ -1834,7 +1762,7 @@
     </div>
 </section>
 
-<!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПОЛИТИКИ ===== -->
+<!-- ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (МОДАЛЬНОЕ ОКНО) ===== -->
 <div class="policy-modal" id="policyModal">
     <div class="policy-modal-content">
         <button class="policy-close" id="policyClose">&times;</button>
@@ -1926,12 +1854,14 @@
     function toggleMenu() {
         mobileMenu.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
 
     function closeMenu() {
         mobileMenu.classList.remove('active');
         mobileOverlay.classList.remove('active');
+        burgerBtn.classList.remove('active');
         document.body.style.overflow = '';
     }
 
@@ -1942,7 +1872,7 @@
         link.addEventListener('click', closeMenu);
     });
 
-    // ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (МОДАЛЬНОЕ ОКНО) =====
+    // ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ =====
     const policyModal = document.getElementById('policyModal');
     const policyClose = document.getElementById('policyClose');
     const policyCloseLink = document.getElementById('policyCloseLink');
@@ -2227,13 +2157,11 @@
         const BOT_TOKEN = '8807074165:AAG1X4e3wQF-oCbk_MvQ837-YX9J7mcP54o';
         const CHAT_ID = '716232442';
 
-        // Блокируем кнопку, пока не поставлена галочка
         agreeCheckbox.addEventListener('change', function() {
             submitBtn.disabled = !this.checked;
         });
         submitBtn.disabled = true;
 
-        // Защита от ботов — скрытое поле
         const honeypot = document.createElement('input');
         honeypot.type = 'text';
         honeypot.name = 'honeypot';
@@ -2243,7 +2171,6 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Проверка на бота (если заполнено скрытое поле — это бот)
             if (honeypot.value) {
                 statusDiv.className = 'error';
                 statusDiv.textContent = '❌ Обнаружена подозрительная активность.';
