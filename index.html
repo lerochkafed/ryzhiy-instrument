@@ -34,6 +34,7 @@
             padding: 0 24px;
         }
 
+        /* ===== АНИМАЦИИ ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -51,6 +52,29 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
             }
         }
 
@@ -74,6 +98,53 @@
 
         .hero-content .badge {
             animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Анимация при наведении на карточки */
+        .gallery-item,
+        .benefit-item,
+        .price-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        .benefit-item:hover {
+            border-color: #e05a2a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(224, 90, 42, 0.08);
+        }
+
+        .price-card:hover {
+            border-color: #e05a2a;
+            transform: translateY(-4px);
+        }
+
+        .btn-primary,
+        .btn-outline,
+        .btn-submit {
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(224, 90, 42, 0.5);
+        }
+
+        .btn-outline:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: scale(1.01);
+        }
+
+        /* Анимация для бургер-меню */
+        .mobile-menu {
+            transition: transform 0.3s ease;
         }
 
         /* ===== HEADER ===== */
@@ -107,7 +178,7 @@
             background: #f5ede6;
             padding: 8px 12px;
             border-radius: 12px;
-            transition: 0.3s;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
         }
 
         .logo-icon:hover {
@@ -127,6 +198,7 @@
             color: #e05a2a;
         }
 
+        /* ===== НАВИГАЦИЯ ===== */
         .nav-wrapper {
             display: flex;
             align-items: center;
@@ -145,7 +217,7 @@
             color: #4a3f37;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: 0.3s;
+            transition: color 0.3s ease;
             position: relative;
         }
 
@@ -157,7 +229,7 @@
             width: 0;
             height: 2px;
             background: #e05a2a;
-            transition: 0.3s;
+            transition: width 0.3s ease;
         }
 
         .nav-menu a:hover {
@@ -168,6 +240,100 @@
             width: 100%;
         }
 
+        /* ===== БУРГЕР-МЕНЮ ===== */
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #4a3f37;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: color 0.3s ease;
+            z-index: 101;
+        }
+
+        .burger-btn:hover {
+            color: #e05a2a;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 98;
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            z-index: 99;
+            padding: 80px 30px 30px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: #1e1e1e;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0e8e0;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: #e05a2a;
+            padding-left: 8px;
+        }
+
+        .mobile-menu .mobile-phone {
+            display: block;
+            margin-top: 30px;
+            padding: 14px 20px;
+            background: #e05a2a;
+            color: #fff !important;
+            border-radius: 60px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: none !important;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu .mobile-phone:hover {
+            background: #c94b1e;
+            padding-left: 20px !important;
+        }
+
+        /* ===== НОМЕР ПОД НАВИГАЦИЕЙ ===== */
         .header-phone-row {
             display: flex;
             justify-content: flex-end;
@@ -184,7 +350,7 @@
             color: #1e1e1e;
             text-decoration: none;
             background: #f5ede6;
-            transition: 0.3s;
+            transition: background 0.3s ease, color 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -193,6 +359,7 @@
         .header-phone i {
             color: #e05a2a;
             font-size: 1rem;
+            transition: color 0.3s ease;
         }
 
         .header-phone:hover {
@@ -296,8 +463,8 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
             box-shadow: 0 8px 32px rgba(224, 90, 42, 0.4);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary i {
@@ -392,10 +559,10 @@
             border-radius: 20px;
             overflow: hidden;
             background: #faf8f6;
-            transition: 0.4s;
             box-shadow: 0 4px 16px rgba(0,0,0,0.02);
             cursor: pointer;
             scroll-snap-align: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item:hover {
@@ -408,7 +575,7 @@
             height: 280px;
             object-fit: cover;
             display: block;
-            transition: 0.5s;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
@@ -441,7 +608,7 @@
             color: #4a3f37;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -458,7 +625,7 @@
             cursor: not-allowed;
         }
 
-        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        /* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ГАЛЕРЕИ ===== */
         .modal {
             display: none;
             position: fixed;
@@ -468,6 +635,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal.active {
@@ -483,6 +651,7 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+            animation: slideInRight 0.3s ease;
         }
 
         .modal-image {
@@ -506,7 +675,7 @@
             height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease, transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -531,7 +700,7 @@
             height: 56px;
             border-radius: 50%;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -581,7 +750,7 @@
             border-radius: 8px;
             cursor: pointer;
             opacity: 0.5;
-            transition: 0.3s;
+            transition: opacity 0.3s ease, border-color 0.3s ease;
             border: 2px solid transparent;
             flex-shrink: 0;
         }
@@ -593,6 +762,93 @@
         .modal-thumbs img.active {
             opacity: 1;
             border-color: #e05a2a;
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПОЛИТИКИ ===== */
+        .policy-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .policy-modal.active {
+            display: flex;
+        }
+
+        .policy-modal-content {
+            background: #fff;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 24px;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 0.3s ease;
+        }
+
+        .policy-modal-content h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #1e1e1e;
+        }
+
+        .policy-modal-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #1e1e1e;
+        }
+
+        .policy-modal-content p {
+            color: #4a3f37;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .policy-modal-content ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .policy-modal-content ul li {
+            color: #4a3f37;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .policy-close {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: #f5ede6;
+            border: none;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e1e1e;
+        }
+
+        .policy-close:hover {
+            background: #e05a2a;
+            color: #fff;
+            transform: rotate(90deg);
         }
 
         /* ===== BENEFITS ===== */
@@ -643,8 +899,8 @@
             border-radius: 20px;
             background: #fff;
             border: 1px solid #ede6de;
-            transition: 0.3s;
             scroll-snap-align: start;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .benefit-item:hover {
@@ -683,7 +939,7 @@
             color: #4a3f37;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -719,7 +975,7 @@
             padding: 32px 24px 28px;
             text-align: center;
             border: 2px solid transparent;
-            transition: 0.4s;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             position: relative;
         }
 
@@ -805,7 +1061,7 @@
             text-decoration: none;
             border: 2px solid #e05a2a;
             color: #e05a2a;
-            transition: 0.3s;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
             background: transparent;
             font-size: 0.9rem;
             cursor: pointer;
@@ -916,7 +1172,7 @@
             border-radius: 30px;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
-            transition: 0.25s;
+            transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
             background: #faf8f6;
         }
 
@@ -943,6 +1199,48 @@
             flex: 1 1 140px;
         }
 
+        /* ===== ЧЕКБОКС СОГЛАСИЯ ===== */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #e05a2a;
+            transition: accent-color 0.3s ease;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            color: #4a3f37;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .checkbox-group label a {
+            color: #e05a2a;
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .checkbox-group label a:hover {
+            color: #c94b1e;
+        }
+
+        .checkbox-group .required {
+            color: #e05a2a;
+            font-weight: 700;
+        }
+
         .btn-submit {
             background: #1e1e1e;
             color: #fff;
@@ -953,16 +1251,21 @@
             font-size: 1rem;
             width: 100%;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
         }
 
-        .btn-submit:hover {
+        .btn-submit:hover:not(:disabled) {
             background: #e05a2a;
             transform: scale(1.01);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         #form-status {
@@ -1008,6 +1311,27 @@
             opacity: 0.7;
         }
 
+        .footer .footer-links {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-links a {
+            color: #cbc1b8;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer .footer-links a:hover {
+            color: #e05a2a;
+            text-decoration: underline;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .nav-menu {
@@ -1022,6 +1346,14 @@
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+
+            .burger-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
             }
 
             .header-phone-row {
@@ -1105,6 +1437,14 @@
                 width: 50px;
                 height: 35px;
             }
+
+            .policy-modal-content {
+                padding: 24px 20px;
+            }
+
+            .policy-modal-content h2 {
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1170,6 +1510,14 @@
                 width: 40px;
                 height: 30px;
             }
+
+            .policy-modal-content {
+                padding: 20px 16px;
+            }
+
+            .policy-modal-content h2 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -1188,6 +1536,7 @@
                 </div>
             </div>
 
+            <!-- ===== ДЕСКТОПНАЯ НАВИГАЦИЯ ===== -->
             <nav class="nav-wrapper">
                 <ul class="nav-menu">
                     <li><a href="#works">Наши работы</a></li>
@@ -1196,6 +1545,11 @@
                     <li><a href="#form">Контакты</a></li>
                 </ul>
             </nav>
+
+            <!-- ===== БУРГЕР-МЕНЮ (МОБИЛЬНАЯ ВЕРСИЯ) ===== -->
+            <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
         <div class="header-phone-row">
@@ -1205,6 +1559,19 @@
         </div>
     </div>
 </header>
+
+<!-- ===== МОБИЛЬНОЕ МЕНЮ (ОВЕРЛЕЙ) ===== -->
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="#works" class="mobile-link">Наши работы</a></li>
+        <li><a href="#benefits" class="mobile-link">Преимущества</a></li>
+        <li><a href="#prices" class="mobile-link">Цены</a></li>
+        <li><a href="#form" class="mobile-link">Контакты</a></li>
+        <li><a href="tel:+79170738790" class="mobile-phone"><i class="fas fa-phone-alt"></i> +7 (917) 073-87-90</a></li>
+    </ul>
+</div>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
@@ -1435,11 +1802,11 @@
                 <form id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Ваше имя</label>
+                            <label for="name">Ваше имя <span style="color:#e05a2a;">*</span></label>
                             <input type="text" id="name" placeholder="Алексей" required />
                         </div>
                         <div class="form-group">
-                            <label for="phone">Телефон</label>
+                            <label for="phone">Телефон <span style="color:#e05a2a;">*</span></label>
                             <input type="tel" id="phone" placeholder="+7 (917) 073-87-90" required />
                         </div>
                     </div>
@@ -1447,7 +1814,17 @@
                         <label for="message">Сообщение</label>
                         <textarea id="message" placeholder="Тип ремонта, площадь и другие пожелания"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">
+
+                    <!-- ===== ЧЕКБОКС СОГЛАСИЯ НА ОБРАБОТКУ ПД ===== -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree" required />
+                        <label for="agree">
+                            Я согласен на <a href="#" id="openPolicy">обработку персональных данных</a> 
+                            <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> Отправить заявку
                     </button>
                     <div id="form-status"></div>
@@ -1457,6 +1834,55 @@
     </div>
 </section>
 
+<!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ПОЛИТИКИ ===== -->
+<div class="policy-modal" id="policyModal">
+    <div class="policy-modal-content">
+        <button class="policy-close" id="policyClose">&times;</button>
+        <h2>Политика конфиденциальности</h2>
+        <p><strong>Дата последнего обновления:</strong> 1 сентября 2026 г.</p>
+        
+        <h3>1. Общие положения</h3>
+        <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта «Рыжий инструмент».</p>
+        <p>Мы уважаем ваше право на конфиденциальность и обязуемся защищать ваши персональные данные в соответствии с Федеральным законом № 152-ФЗ «О персональных данных».</p>
+
+        <h3>2. Какие данные мы собираем</h3>
+        <p>При заполнении формы заявки на нашем сайте мы собираем следующие данные:</p>
+        <ul>
+            <li><strong>Имя</strong> — для обращения к вам</li>
+            <li><strong>Номер телефона</strong> — для связи с вами</li>
+            <li><strong>Сообщение</strong> — для уточнения деталей заявки</li>
+        </ul>
+
+        <h3>3. Как мы используем ваши данные</h3>
+        <p>Ваши данные используются исключительно для:</p>
+        <ul>
+            <li>Связи с вами по вопросам, связанным с вашей заявкой</li>
+            <li>Консультации по услугам компании</li>
+            <li>Формирования коммерческого предложения</li>
+        </ul>
+
+        <h3>4. Хранение данных</h3>
+        <p>Ваши данные хранятся в защищённом Telegram-боте и не передаются третьим лицам. Мы не продаём и не обмениваем ваши персональные данные.</p>
+
+        <h3>5. Срок хранения</h3>
+        <p>Мы храним ваши данные в течение времени, необходимого для обработки вашей заявки, а также в течение 3 лет для соблюдения требований законодательства.</p>
+
+        <h3>6. Ваши права</h3>
+        <p>Вы имеете право:</p>
+        <ul>
+            <li>Запросить информацию о том, какие данные о вас хранятся</li>
+            <li>Потребовать удаления ваших данных</li>
+            <li>Отозвать согласие на обработку данных</li>
+        </ul>
+        <p>Для этого свяжитесь с нами по телефону: <strong>+7 (917) 073-87-90</strong></p>
+
+        <h3>7. Изменения в политике</h3>
+        <p>Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности. Актуальная версия всегда доступна на этой странице.</p>
+
+        <p style="margin-top: 20px; text-align: center;"><a href="#" id="policyCloseLink" style="color: #e05a2a; font-weight: 600; text-decoration: underline; cursor: pointer;">Закрыть</a></p>
+    </div>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
@@ -1464,10 +1890,14 @@
             <span>Рыжий</span> инструмент
         </p>
         <small>© 2026 Все права защищены. Ремонт под ключ с душой.</small>
+        <div class="footer-links">
+            <a id="footerPolicy">Политика конфиденциальности</a>
+            <a id="footerAgree">Согласие на обработку ПД</a>
+        </div>
     </div>
 </footer>
 
-<!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+<!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ГАЛЕРЕИ ===== -->
 <div class="modal" id="modal">
     <div class="modal-content">
         <button class="modal-close" id="modalClose">
@@ -1487,6 +1917,82 @@
 
 <!-- ===== SCRIPT ===== -->
 <script>
+    // ===== БУРГЕР-МЕНЮ =====
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('active');
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burgerBtn.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (МОДАЛЬНОЕ ОКНО) =====
+    const policyModal = document.getElementById('policyModal');
+    const policyClose = document.getElementById('policyClose');
+    const policyCloseLink = document.getElementById('policyCloseLink');
+    const openPolicyBtn = document.getElementById('openPolicy');
+    const footerPolicy = document.getElementById('footerPolicy');
+    const footerAgree = document.getElementById('footerAgree');
+
+    function openPolicyModal() {
+        policyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyModal() {
+        policyModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    openPolicyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPolicyModal();
+    });
+
+    footerPolicy.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPolicyModal();
+    });
+
+    footerAgree.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPolicyModal();
+    });
+
+    policyClose.addEventListener('click', closePolicyModal);
+    policyCloseLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        closePolicyModal();
+    });
+
+    policyModal.addEventListener('click', function(e) {
+        if (e.target === policyModal) {
+            closePolicyModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && policyModal.classList.contains('active')) {
+            closePolicyModal();
+        }
+    });
+
     // ===== ДАННЫЕ ДЛЯ ГАЛЕРЕИ =====
     const galleryData = [
         {
@@ -1537,7 +2043,7 @@
         }
     ];
 
-    // ===== МОДАЛЬНОЕ ОКНО =====
+    // ===== МОДАЛЬНОЕ ОКНО ДЛЯ ГАЛЕРЕИ =====
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
     const modalCounter = document.getElementById('modalCounter');
@@ -1710,18 +2216,40 @@
         setTimeout(updateBenefitsButtons, 100);
     }
 
-    // ===== FORM SCRIPT (ОТПРАВКА В TELEGRAM) =====
+    // ===== FORM SCRIPT =====
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('contact-form');
         const statusDiv = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submitBtn');
+        const agreeCheckbox = document.getElementById('agree');
 
-        // ⬇⬇⬇ ВСТАВЬТЕ СВОЙ ТОКЕН И CHAT ID ⬇⬇⬇
+        // ⬇⬇⬇ ВСТАВЬТЕ СВОИ ДАННЫЕ ⬇⬇⬇
         const BOT_TOKEN = '8807074165:AAG1X4e3wQF-oCbk_MvQ837-YX9J7mcP54o';
-        const CHAT_ID = '573904279';
-        const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const CHAT_ID = '716232442';
+
+        // Блокируем кнопку, пока не поставлена галочка
+        agreeCheckbox.addEventListener('change', function() {
+            submitBtn.disabled = !this.checked;
+        });
+        submitBtn.disabled = true;
+
+        // Защита от ботов — скрытое поле
+        const honeypot = document.createElement('input');
+        honeypot.type = 'text';
+        honeypot.name = 'honeypot';
+        honeypot.style.display = 'none';
+        form.appendChild(honeypot);
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            // Проверка на бота (если заполнено скрытое поле — это бот)
+            if (honeypot.value) {
+                statusDiv.className = 'error';
+                statusDiv.textContent = '❌ Обнаружена подозрительная активность.';
+                statusDiv.style.display = 'block';
+                return;
+            }
 
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -1734,38 +2262,34 @@
                 return;
             }
 
-            const submitBtn = form.querySelector('.btn-submit');
+            if (!agreeCheckbox.checked) {
+                statusDiv.className = 'error';
+                statusDiv.textContent = '❌ Пожалуйста, дайте согласие на обработку персональных данных.';
+                statusDiv.style.display = 'block';
+                return;
+            }
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
             statusDiv.style.display = 'none';
 
-            // Формируем текст сообщения
-            const text = `🛠 НОВАЯ ЗАЯВКА С САЙТА!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📝 Сообщение: ${message || '—'}\n\n📅 ${new Date().toLocaleString('ru-RU')}`;
+            const text = `🛠 НОВАЯ ЗАЯВКА С САЙТА!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📝 Сообщение: ${message || '—'}\n✅ Согласие на обработку ПД: Да\n\n📅 ${new Date().toLocaleString('ru-RU')}`;
 
             try {
-                const response = await fetch(TELEGRAM_API, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: text,
-                        parse_mode: 'HTML'
-                    })
-                });
-
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`;
+                const response = await fetch(url);
                 const result = await response.json();
 
                 if (result.ok) {
                     statusDiv.className = 'success';
                     statusDiv.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
                     form.reset();
+                    submitBtn.disabled = true;
                 } else {
-                    throw new Error('Ошибка отправки');
+                    throw new Error('Ошибка: ' + JSON.stringify(result));
                 }
             } catch (error) {
-                console.error('Ошибка:', error);
+                console.error('Ошибка отправки:', error);
                 statusDiv.className = 'error';
                 statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните по телефону.';
             }
