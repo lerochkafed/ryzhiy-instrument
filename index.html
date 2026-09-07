@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Рыжий инструмент | Ремонт квартир под ключ</title>
+    
+    <!-- ===== SEO МЕТА-ТЕГИ ===== -->
+    <title>Рыжий инструмент — Ремонт квартир под ключ в Москве</title>
+    <meta name="description" content="Ремонт квартир под ключ в Москве. Косметический, капитальный и дизайнерский ремонт. Работаем по договору, без предоплаты. Гарантия 3 года. Бесплатный замер и смета." />
+    <meta name="keywords" content="ремонт квартир под ключ, ремонт под ключ, ремонт квартир, отделка квартир, капитальный ремонт, косметический ремонт, дизайнерский ремонт, ремонт ванной, ремонт кухни, ремонт гостиной, строительная компания, ремонт в Москве" />
+    
+    <!-- ===== OPEN GRAPH (для соцсетей) ===== -->
+    <meta property="og:title" content="Рыжий инструмент — Ремонт квартир под ключ" />
+    <meta property="og:description" content="Ремонт квартир под ключ в Москве. Работаем по договору, без предоплаты. Гарантия 3 года." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ryzhiy-instrument.ru" />
+    <meta property="og:image" content="https://ryzhiy-instrument.ru/images/remont-bg.jpg" />
+    
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔧%3C/text%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔧%3C/text%3E%3C/svg%3E" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
+        /* ===== ВЕСЬ ВАШ CSS ===== */
         * {
             margin: 0;
             padding: 0;
@@ -127,7 +143,6 @@
             color: #e05a2a;
         }
 
-        /* ===== НАВИГАЦИЯ ===== */
         .nav-wrapper {
             display: flex;
             align-items: center;
@@ -169,7 +184,6 @@
             width: 100%;
         }
 
-        /* ===== БУРГЕР-МЕНЮ ===== */
         .burger-btn {
             display: none;
             background: none;
@@ -275,7 +289,6 @@
             padding-left: 20px !important;
         }
 
-        /* ===== НОМЕР ПОД НАВИГАЦИЕЙ ===== */
         .header-phone-row {
             display: flex;
             justify-content: flex-end;
@@ -1138,7 +1151,6 @@
             flex: 1 1 140px;
         }
 
-        /* ===== ЧЕКБОКС СОГЛАСИЯ ===== */
         .checkbox-group {
             display: flex;
             align-items: flex-start;
@@ -1463,7 +1475,6 @@
                 </div>
             </div>
 
-            <!-- ===== ДЕСКТОПНАЯ НАВИГАЦИЯ ===== -->
             <nav class="nav-wrapper">
                 <ul class="nav-menu">
                     <li><a href="#works">Наши работы</a></li>
@@ -1473,7 +1484,6 @@
                 </ul>
             </nav>
 
-            <!-- ===== БУРГЕР-КНОПКА ===== -->
             <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-times"></i>
@@ -1488,7 +1498,7 @@
     </div>
 </header>
 
-<!-- ===== МОБИЛЬНОЕ МЕНЮ (ОВЕРЛЕЙ) ===== -->
+<!-- ===== МОБИЛЬНОЕ МЕНЮ ===== -->
 <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -1718,9 +1728,6 @@
                 <div class="contact-row">
                     <i class="fas fa-envelope"></i> info@ryzhiy-instrument.ru
                 </div>
-                <div class="contact-row">
-                    <i class="fab fa-telegram"></i> @ryzhiy_master
-                </div>
                 <div style="margin-top: 24px; background: #f5ede6; padding: 12px 20px; border-radius: 30px; font-weight: 600; color: #1e1e1e; display: inline-block; font-size: 0.9rem;">
                     <i class="fas fa-tools" style="color: #e05a2a;"></i> Рыжий инструмент — ремонт с характером
                 </div>
@@ -1743,7 +1750,6 @@
                         <textarea id="message" placeholder="Тип ремонта, площадь и другие пожелания"></textarea>
                     </div>
 
-                    <!-- ===== ЧЕКБОКС СОГЛАСИЯ ===== -->
                     <div class="checkbox-group">
                         <input type="checkbox" id="agree" required />
                         <label for="agree">
@@ -1762,7 +1768,7 @@
     </div>
 </section>
 
-<!-- ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (МОДАЛЬНОЕ ОКНО) ===== -->
+<!-- ===== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ===== -->
 <div class="policy-modal" id="policyModal">
     <div class="policy-modal-content">
         <button class="policy-close" id="policyClose">&times;</button>
